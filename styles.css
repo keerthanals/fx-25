@@ -19,6 +19,8 @@
   box-sizing: border-box;
 }
 
+
+
 .section__container {
   padding: 5rem 1rem;
   max-width: var(--max-width);
@@ -31,7 +33,11 @@
   color: var(--primary-color);
   margin-bottom: 1rem;
   text-align: center;
+  font-family: 'Game of Squids', sans-serif;
+  
 }
+
+
 
 .section__subtitle {
   font-size: 1rem;
@@ -39,6 +45,7 @@
   color: var(--primary-color);
   margin-bottom: 5rem;
   text-align: center;
+  
 }
 
 img {
@@ -120,6 +127,48 @@ nav {
   text-decoration: none; /* Ensures no underline on hover */
 }
 
+/* Hamburger icon for mobile view */
+.hamburger {
+  display: none; /* Hide the hamburger icon by default */
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  z-index: 10; /* Ensure it stays above other elements */
+}
+
+.hamburger span {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background-color: var(--extra-light); /* Match the text color */
+  transition: 0.3s;
+}
+
+/* Show the hamburger menu on smaller screens */
+@media screen and (max-width: 768px) {
+  .nav__links {
+    display: none; /* Hide the nav links by default */
+    flex-direction: column; /* Stack links vertically */
+    position: absolute;
+    top: 100%; /* Position below the navbar */
+    right: 0;
+    background-color: #333; /* Customize the background color */
+    padding: 1rem 2rem;
+    width: 200px;
+    text-align: right;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+  }
+
+  .nav__links.active {
+    display: flex; /* Show the nav links when active */
+  }
+
+  .hamburger {
+    display: flex; /* Show the hamburger icon */
+  }
+}
+
+
 header {
   height: 100vh;
   background-image: linear-gradient(
@@ -130,6 +179,11 @@ header {
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+
+.heading{
+  color: #ba0d8f;
 }
 
 header .section__container {
@@ -188,6 +242,47 @@ header .section__container {
   background-color: var(--extra-light);
 }
 
+/* styles.css */
+.events__card {
+  opacity: 0; /* Initially hidden */
+  transform: translateY(20px); /* Positioned slightly off-screen */
+  animation: pop-up 1.0s ease-out forwards;
+}
+
+/* Pop-up animation */
+@keyframes pop-up {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Sequential animation delays */
+.journey__grid .events__card:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.journey__grid .events__card:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.journey__grid .events__card:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.journey__grid .events__card:nth-child(4) {
+  animation-delay: 0.4s;
+}
+.journey__grid .events__card:nth-child(5) {
+  animation-delay: 0.5s;
+}
+.journey__grid .events__card:nth-child(6) {
+  animation-delay: 0.6s;
+}
+/* Add delays for additional cards as needed */
+
+
 .country__name {
   padding: 1rem;
   text-align: left;
@@ -206,46 +301,7 @@ header .section__container {
   font-style: italic;
 }
 
-/* .banner__container {
-  background-image: linear-gradient(
-      rgba(35, 71, 103, 0.5),
-      rgba(35, 71, 103, 0.5)
-    ),
-    url("assets/bg-2.jpg");
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover;
-} */
 
-.banner__container .section__container {
-  padding: 10rem 1rem;
-  display: flex;
-  justify-content: center;
-}
-
-.banner__content {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  gap: 1.5rem;
-  text-align: center;
-  color: var(--extra-light);
-}
-
-.banner__content h2 {
-  font-size: 2rem;
-  font-weight: 400;
-}
-
-.banner__content button {
-  padding: 0.5rem 2rem;
-  outline: none;
-  border: 2px solid var(--secondary-color);
-  background-color: transparent;
-  color: var(--secondary-color);
-  font-size: 1rem;
-  cursor: pointer;
-}
 .contacts__container {
   background-color: #282d31;
   text-align: center; /* Centers the text */
